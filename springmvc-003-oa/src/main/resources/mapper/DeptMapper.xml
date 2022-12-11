@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.DeptMapper">
+    <insert id="insert">
+        insert into dept(deptno, dname, location)
+        values (#{deptno}, #{dname}, #{location})
+    </insert>
+
+    <delete id="delete">
+        delete
+        from dept
+        where deptno = #{id}
+    </delete>
+
+    <update id="update">
+        update dept
+        set dname=#{dname},
+            location=#{location}
+        where deptno = #{deptno}
+    </update>
+
+    <select id="selectByDeptno" resultType="bean.Dept">
+        select deptno, dname, location
+        from dept
+        where deptno = #{deptno}
+    </select>
+
+    <select id="selectAll" resultType="bean.Dept">
+        select deptno, dname, location
+        from dept
+    </select>
+</mapper>
+
